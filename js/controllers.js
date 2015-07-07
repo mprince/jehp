@@ -17,6 +17,7 @@ jehpControllers.controller('JobCtrl', function($scope, $http, $timeout, dataServ
     $scope.activeTab = 0;
     $scope.switchToTab = function(tabToSwitchTo){
       $scope.activeTab = tabToSwitchTo;
+      console.log(tabToSwitchTo);
     }
 
     $scope.activeSubTab = 0;

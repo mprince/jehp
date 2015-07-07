@@ -19,55 +19,47 @@
 </style>
 
 <style type="text/css">
-body {background-color:#000000;}
-li a{text-align:center; color:#FFFFFF;text-shadow: 1px 1px 2px #000000;}
-a:hover {text-align:center; color:#FFFFFF;text-shadow: 1px 1px 2px #000000;}
-a:focus {text-align:center; color:#FFFFFF;text-shadow: 1px 1px 2px #000000;}
-.passed {background-color:#2AC738;}
-.failed {background-color:#FF0000;}
-.bailed {background-color:#FFD600;}
-.notbuilt {background-color:#FFD600;}
-.disabledbuild {background-color:#FFD600;}
-.unstable {background-color:#FFD600;}
-.run_unstable {background-color:#FFD600;}
-.not_found {background-color:#FF7700;}
-.run_pass {background-color:#2AC738;animation: blink 1s steps(5, start) infinite;-webkit-animation: blink 1s steps(5, start) infinite;}
-.run_fail {background-color:#FF0000;animation: blink 1s steps(5, start) infinite;-webkit-animation: blink 1s steps(5, start) infinite;}
-.run_bail {background-color:#FFD600;animation: blink 1s steps(5, start) infinite;-webkit-animation: blink 1s steps(5, start) infinite;}
-div.culprit {color:#FFD600;background-color:#000000;}
-@keyframes blink { to { visibility: hidden; }}
-@-webkit-keyframes blink { to { visibility: hidden; }}
+
 </style>
 </head>
 <body>
 
 <div class="tabbable tabs-left" data-ng-controller= "JobCtrl">
-    <ul class="nav nav-tabs">
-        <li data-ng-repeat="grpFail in groupFailOnly"  id="{{grpFail.name}}" class="{{grpFail.status}}" ng-class="{active: $index == activeTab}">
-            <a ng-click="switchToTab($index)" data-toggle="tab">
-                {{grpFail.name}}
-            </a>
-        </li>
-        <li class="passed">
-            <a href="/jehpDisplayAllJobs.html">Passed</a>
-        </li>           
-    </ul>
-    <div class="tab-content">
-      <div class="tab-pane fade in" data-ng-repeat="grpFail in groupFailOnly" ng-class="{active: $index == activeTab}" >
-          <div class="tabbable tabs-left">
-              <ul class="nav nav-tabs">
-                  <li data-ng-repeat="job in jobs" ng-if="job.group == $parent.grpFail.name" class="{{job.status}}" ng-class="{active: $index == activeSubTab}">
-                      <a ng-click="switchToSubTab($index)" data-toggle="tab">
-                            {{job.name}}
-                          <div class="tab-pane fade in culprit" ng-class="{active: $index == activeSubTab}">
-                                {{job.culprit}}
-                          </div>
-                      </a>
-                  </li>
-              </ul>
+    <div class="row narrow">
+      <div class="col-sm-1">
+        <legend>Groups</legend>
+        <ul class="nav nav-pills nav-stacked">
+            <li data-ng-repeat="grpFail in groupFailOnly"  id="{{grpFail.name}}" class="{{grpFail.status}}" ng-class="{active: $index == activeTab}">
+                <a ng-click="switchToTab($index)" data-toggle="tab">
+                    {{grpFail.name}}
+                </a>
+            </li>
+            <li class="passed">
+                <a href="/jehpDisplayAllJobs.html">Passed</a>
+            </li>           
+        </ul>
+      </div>
+      <div class="end"></div>
+    </div>
+    <div class="row narrow">
+      <div class="col-sm-1">
+        <div class="tab-content tabbable tabs-left">
+          <div class="tab-pane fade in" data-ng-repeat="grpFail in groupFailOnly" ng-class="{active: $index == activeTab}" >
+                <legend>Jobs</legend>
+                  <ul class="nav nav-pills nav-stacked">
+                      <li data-ng-repeat="job in jobs" ng-if="job.group == $parent.grpFail.name" class="{{job.status}}" ng-class="{active: $index == activeSubTab}">
+                          <a ng-show="tab === $parent.active: $index" data-toggle="tab">
+                                {{job.name}}
+                              <div class="tab-pane fade in culprit" ng-class="{active: $index == activeSubTab}">
+                                    {{job.culprit}}
+                              </div>
+                          </a>
+                      </li>
+                  </ul>
           </div>
-      </div>   
-  </div>
+        </div>
+      </div>  
+    </div>
 </div>
 
   <script src="http://code.jquery.com/jquery.js"></script>
