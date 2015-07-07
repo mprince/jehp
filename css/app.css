@@ -1,6 +1,58 @@
 /* app css stylesheet */
 
 body {
-  padding-top: 20px;
+    padding: 3%;
+    background-color:#000000; 
+    font-size: 1.05em;
+    font-weight: bold;
 }
 
+.narrow {
+    max-width: 25%;
+}
+
+legend {
+    font-weight: bold;
+    font-size:1.2em;
+    color: #FFFFFF
+}
+
+.nav-pills>li {
+	border-radius: 0px 25px 25px;
+}
+
+.nav-pills > li.active > a {
+	border-radius: 0px 25px 25px;
+    background-color:#aaa;
+    opacity:0.85;
+}
+
+.nav-pills>li.active>a:hover {
+	border-radius: 0px 25px 25px;
+    background-color:#fff;
+    opacity:1;
+}
+
+.nav-pills>li>a:hover {
+	border-radius: 0px 25px 25px;
+    background-color:#fff;
+    opacity:1;
+}
+
+li a{text-align:center; color:#FFFFFF;text-shadow: 1px 1px 3px #000000;}
+a:hover {text-align:center; color:#FFFFFF;text-shadow: 1px 1px 2px #000000;}
+a:focus {text-align:center; color:#FFFFFF;text-shadow: 1px 1px 2px #000000;}
+.passed {background-color:#1FBB2C;}
+.failed {background-color:#FF0000;}
+.bailed {background-color:#FFD600;}
+.notbuilt {background-color:#FFD600;}
+.disabledbuild {background-color:#FFD600;}
+.unstable {background-color:#FFD600;}
+.run_unstable {background-color:#FFD600;}
+.not_found {background-color:#FF7700;}
+.run_pass {background-color:#2AC738;animation: blink 1s steps(5, start) infinite;-webkit-animation: blink 1s steps(5, start) infinite;}
+.run_fail {background-color:#FF0000;animation: blink 1s steps(5, start) infinite;-webkit-animation: blink 1s steps(5, start) infinite;}
+.run_bail {background-color:#FFD600;animation: blink 1s steps(5, start) infinite;-webkit-animation: blink 1s steps(5, start) infinite;}
+div.culprit {color:#FFD600;background-color:#000000;padding:7px;}
+@keyframes blink { to { visibility: hidden; }}
+@-webkit-keyframes blink { to { visibility: hidden; }}
