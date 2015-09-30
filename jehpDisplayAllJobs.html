@@ -26,11 +26,11 @@
 
 <div class="row">
   <div class="tab-content tabbable tabs-left" data-ng-controller= "JobCtrl">
-      <div class="span6">
+      <div class="span4">
         <legend>Groups</legend>
         <ul class="nav nav-pills nav-stacked">
             <li class="passed">
-                <a href="/jehpDisplay.html">Collapse</a>
+                <a href="/jehpDisplay.html">Back</a>
             </li>   
             <li data-ng-repeat="grpPass in groupGreenOnly"  id="{{grpPass.name}}" class="{{grpPass.status}}" ng-class="{active: $index == activeTab}">
                 <a ng-click="switchToTab($index)" data-toggle="tab">
@@ -39,17 +39,17 @@
             </li>
         </ul>
       </div>
-      <div class="span6">
-        <div class="tab-content tabbable tabs-left fade in" data-ng-repeat="grpPass in groupGreenOnly" ng-class="{active: $index == activeTab}" >
-            <legend>Jobs</legend>
-            <ul class="nav nav-pills nav-stacked">
+      <div class="span4">
+        <legend>Jobs</legend>
+          <div class="tab-content tabbable tabs-left fade in" data-ng-repeat="grpPass in groupGreenOnly" ng-class="{active: $index == activeTab}" >
+            <ul class="nav nav-pills nav-stacked" ng-show="$index == activeTab">
                 <li data-ng-repeat="job in jobs" ng-if="job.group == $parent.grpPass.name" class="{{job.status}}">
                     <a data-toggle="tab">
                         {{job.name}}
                     </a>
                 </li>
             </ul>
-        </div>
+          </div>
       </div>
   </div>
 </div>

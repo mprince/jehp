@@ -47,10 +47,10 @@
           <div class="tab-pane fade in" data-ng-repeat="grpFail in groupFailOnly" ng-class="{active: $index == activeTab}" >
                 <legend>Jobs</legend>
                   <ul class="nav nav-pills nav-stacked">
-                      <li data-ng-repeat="job in jobs" ng-if="job.group == $parent.grpFail.name" class="{{job.status}}" ng-class="{active: $index == activeSubTab}">
-                          <a ng-show="tab === $parent.active: $index" data-toggle="tab">
+                      <li data-ng-repeat="job in jobs" ng-if="job.group == $parent.grpFail.name" class="{{job.status}}">
+                          <a ng-show="tab === $parent.active: $index">
                                 {{job.name}}
-                              <div class="tab-pane fade in culprit" ng-class="{active: $index == activeSubTab}">
+                              <div class="tab-pane fade in culprit" ng-class="{active: $index == activeSubTab}" ng-if="job.culprit">
                                     {{job.culprit}}
                               </div>
                           </a>
